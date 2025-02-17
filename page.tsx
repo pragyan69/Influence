@@ -1,4 +1,8 @@
-import { Button } from "@/components/ui/button"
+
+"use client";
+
+import { useRef } from "react";
+import { motion } from "framer-motion";import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Phone, PhoneIcon as WhatsApp, ArrowRight } from "lucide-react"
@@ -6,7 +10,18 @@ import Image from "next/image"
 import Link from "next/link"
 import { RevenueGraph } from "./revenue-graph"
 
+const MotionCard = motion(Card);
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 export default function LandingPage() {
+  const resultsRef = useRef<HTMLElement>(null);
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1F1432] to-[#2D1B4B] text-white">
       {/* Header */}
@@ -197,11 +212,64 @@ export default function LandingPage() {
         <p className="text-xl mb-12 max-w-2xl mx-auto">
           Join the ranks of businesses that have achieved phenomenal growth. Let's start your success story today!
         </p>
+      {/* RESULTS SECTION */}
+      <section ref={resultsRef} className="py-20 bg-gradient-to-b from-[#1F1432] to-[#2D1B4B] to-black">
+  <div className="container px-4 mx-auto">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="text-5xl md:text-6xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text"
+    >
+      Proven Results
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto"
+    >
+      Real numbers from brands using INFLUENCE
+    </motion.p>
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+    >
+      {[
+        { metric: "40%", label: "Average Growth in Sales", sublabel: "Month over Month" },
+        { metric: "3x", label: "Return on Investment", sublabel: "Compared to Traditional Methods" },
+        { metric: "200+", label: "New Customers Monthly", sublabel: "Per Brand Average" },
+        { metric: "95%", label: "Cost Reduction", sublabel: "In Marketing Operations" },
+      ].map((item, index) => (
+        <MotionCard
+          key={index}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-gray-800 border-gray-700 hover:bg-gray-700/50 transition-all duration-500 ease-out rounded-2xl" // ✅ Rounded corners
+        >
+          <CardContent className="p-8 text-center">
+            <p className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text mb-4">
+              {item.metric}
+            </p>
+            <p className="text-xl font-semibold text-gray-200 mb-2">{item.label}</p>
+            <p className="text-gray-400">{item.sublabel}</p>
+          </CardContent>
+        </MotionCard>
+      ))}
+    </motion.div>
+  </div>
+</section>
+
         <Link
           href="https://mail.google.com/mail/u/0/?fs=1&to=zeeshandocs3@gmail.com&su=Need+help+In+Scaling+my+business&body=I+would+greatly+appreciate+your+assistance+in+growing+my+business.+Your+expertise+and+support+could+make+a+significant+difference+on+this+exciting+journey.+Let%27s+work+together+to+achieve+new+heights!&form=MG0AV3&tf=cm"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-[#A855F7] hover:bg-[#A855F7]/90 text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+          className="inline-flex items-center justify-center bg-[#A855F7] hover:bg-[#A855F7]/90 text-xl px-12 my-5 py-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
         >
           Get Started Now
           <ArrowRight className="ml-2 h-6 w-6" />
