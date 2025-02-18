@@ -78,7 +78,8 @@ export default function LandingPage() {
 
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-5 text-center">
+           {/* Hero Section */}
+           <section className="container mx-auto px-4 py-5 text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
           Supercharge Your Business 🚀 <br />
           <span className="text-[#A855F7]">Reach 10x Revenue!</span>
@@ -89,16 +90,31 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto mb-12">
           <RevenueGraph />
         </div>
-        <Link
-          href="https://mail.google.com/mail/u/0/?fs=1&to=zeeshandocs3@gmail.com&su=Need+help+In+Scaling+my+business&body=I+would+greatly+appreciate+your+assistance+in+growing+my+business.+Your+expertise+and+support+could+make+a+significant+difference+on+this+exciting+journey.+Let%27s+work+together+to+achieve+new+heights!&form=MG0AV3&tf=cm"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-[#A855F7] hover:bg-[#A855F7]/90 text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
-        >
-          Get Started Now
-          <ArrowRight className="ml-2 h-6 w-6" />
-        </Link>
+
+        {/* Stacked Buttons */}
+        <div className="flex flex-col gap-4 items-center">
+          <Link
+            href="mailto:influenceoffcl@gmail.com?subject=Need%20help%20In%20Scaling%20my%20business&body=I%20would%20greatly%20appreciate%20your%20assistance%20in%20growing%20my%20business.%20Your%20expertise%20and%20support%20could%20make%20a%20significant%20difference%20on%20this%20exciting%20journey.%20Let%27s%20work%20together%20to%20achieve%20new%20heights!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-[#A855F7] hover:bg-[#A855F7]/90 text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 w-full max-w-xs"
+          >
+            Get Started Now
+            <ArrowRight className="ml-2 h-6 w-6" />
+          </Link>
+
+          <Link
+            href="https://calendly.com/officialinfluence/strategic-growth-session"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-[#A855F7] hover:bg-[#A855F7]/90 text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 w-full max-w-xs"
+          >
+            Book a call
+            <ArrowRight className="ml-2 h-6 w-6" />
+          </Link>
+        </div>
       </section>
+
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-16">
@@ -213,6 +229,7 @@ export default function LandingPage() {
           Join the ranks of businesses that have achieved phenomenal growth. Let's start your success story today!
         </p>
       {/* RESULTS SECTION */}
+
       <section ref={resultsRef} className="py-20 bg-gradient-to-b from-[#1F1432] to-[#2D1B4B] to-black">
   <div className="container px-4 mx-auto">
     <motion.h2
@@ -266,7 +283,7 @@ export default function LandingPage() {
 </section>
 
         <Link
-          href="https://mail.google.com/mail/u/0/?fs=1&to=zeeshandocs3@gmail.com&su=Need+help+In+Scaling+my+business&body=I+would+greatly+appreciate+your+assistance+in+growing+my+business.+Your+expertise+and+support+could+make+a+significant+difference+on+this+exciting+journey.+Let%27s+work+together+to+achieve+new+heights!&form=MG0AV3&tf=cm"
+          href="mailto:influenceoffcl@gmail.com?subject=Need%20help%20In%20Scaling%20my%20business&body=I%20would%20greatly%20appreciate%20your%20assistance%20in%20growing%20my%20business.%20Your%20expertise%20and%20support%20could%20make%20a%20significant%20difference%20on%20this%20exciting%20journey.%20Let%27s%20work%20together%20to%20achieve%20new%20heights!"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center bg-[#A855F7] hover:bg-[#A855F7]/90 text-xl px-12 my-5 py-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
@@ -282,7 +299,7 @@ export default function LandingPage() {
           <div className="text-center">
             <h3 className="font-bold text-2xl mb-4">Contact Us</h3>
             <p className="mb-2 text-lg">Phone: 7637855557</p>
-            <p className="text-lg">Email: zeeshandocs3@gmail.com</p>
+            <p className="text-lg">Email: influenceoffcl@gmail.com</p>
           </div>
         </div>
       </footer>
